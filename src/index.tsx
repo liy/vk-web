@@ -1,0 +1,51 @@
+import {StrictMode} from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
+
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById('app'),
+);
+
+const url = 'ws://localhost:8080/open-topic/my-topic';
+const websocket = new WebSocket(url);
+websocket.onopen = (e) => {
+  console.log('connection open');
+  console.log('');
+
+  var t = 0;
+  setInterval(() => {
+    websocket.send(
+      JSON.stringify([
+        {
+          key: ++t + '',
+          value: 'This is a data',
+        },
+      ]),
+    );
+  }, 4000);
+};
+
+websocket.onerror = (e: Event) => {
+  console.log('error', e);
+  console.log('');
+};
+
+websocket.onclose = (e: Event) => {
+  console.log('close', e);
+  console.log('');
+};
+
+websocket.onmessage = (e: MessageEvent<string>) => {
+  const message = JSON.parse(e.data);
+
+  console.log({
+    key: atob(message.Key),
+    value: atob(message.Value),
+    offset: message.Offset,
+    partition: message.Partition,
+  });
+};
