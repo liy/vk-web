@@ -7,7 +7,7 @@ ReactDOM.render(
   <StrictMode>
     <App />
   </StrictMode>,
-  document.getElementById('app'),
+  document.getElementById('root'),
 );
 
 const url = 'ws://localhost:8080/open-topic/my-topic';
