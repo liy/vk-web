@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
-import './App.css';
+import { useState, useEffect, ReactElement } from 'react';
+import * as css from './App.scss';
 
-interface AppProps {}
 
-function App({}: AppProps) {
+function App():ReactElement {
   // Create the count state.
   const [count, setCount] = useState(0);
   // Create the counter (+1 every second).
@@ -13,7 +12,7 @@ function App({}: AppProps) {
   }, [count, setCount]);
   // Return the App component.
   return (
-    <div className="app">
+    <div className={css.app}>
       <header className="app-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
