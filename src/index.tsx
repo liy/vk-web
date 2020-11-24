@@ -1,7 +1,7 @@
 import {StrictMode} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
   <StrictMode>
@@ -12,11 +12,13 @@ ReactDOM.render(
 
 const url = 'ws://localhost:8080/open-topic/my-topic';
 const websocket = new WebSocket(url);
-websocket.onopen = (e) => {
+websocket.onopen = () => {
   console.log('connection open');
   console.log('');
 
-  var t = 0;
+  console.warn('test')
+
+  let t = 0;
   setInterval(() => {
     websocket.send(
       JSON.stringify([
@@ -49,3 +51,5 @@ websocket.onmessage = (e: MessageEvent<string>) => {
     partition: message.Partition,
   });
 };
+
+export default {}

@@ -6,6 +6,7 @@
   },
   "extends": [
     "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
@@ -17,7 +18,13 @@
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
+    },
+    "react": {
+      "version": "detect"
     }
   },
-  "ignorePatterns": ["dist", "out"]
+  "ignorePatterns": ["dist", "out"],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
 }

@@ -1,8 +1,10 @@
 import { useState, useEffect, ReactElement } from 'react';
-import * as css from './App.scss';
+import * as styles from './App.scss';
 
 
 function App():ReactElement {
+
+  console.error(styles.app)
   // Create the count state.
   const [count, setCount] = useState(0);
   // Create the counter (+1 every second).
@@ -12,7 +14,7 @@ function App():ReactElement {
   }, [count, setCount]);
   // Return the App component.
   return (
-    <div className={css.app}>
+    <div className={styles.app}>
       <header className="app-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.

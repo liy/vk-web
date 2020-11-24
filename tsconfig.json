@@ -5,18 +5,16 @@
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
+    // Let babel transpile react
     "jsx": "preserve",
-    "baseUrl": "./",
-    /* paths - If you configure Snowpack import aliases, add them here. */
+    "baseUrl": "./src",
     "paths": {},
-    /* noEmit - Snowpack builds (emits) files, not tsc. */
-    "noEmit": true,
-    /* Additional Options */
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "typeRoots": ["./node_modules/@types", "./types"]
   }
 }
