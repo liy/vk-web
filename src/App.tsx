@@ -3,8 +3,7 @@ import * as styles from './App.scss';
 
 
 function App():ReactElement {
-
-  console.error(styles.app)
+  console.log('test')
   // Create the count state.
   const [count, setCount] = useState(0);
   // Create the counter (+1 every second).

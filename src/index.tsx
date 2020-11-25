@@ -52,4 +52,6 @@ websocket.onmessage = (e: MessageEvent<string>) => {
   });
 };
 
-export default {}
+if (module.hot) {
+  module.hot.accept()
+}

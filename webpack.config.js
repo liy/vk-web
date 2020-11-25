@@ -4,7 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, { mode = 'development', hosting = 'true' }) => {
+  mode = 'development';
   const config = {
+    mode,
     entry: {
       app: path.join(__dirname, 'src', 'index.tsx'),
     },
@@ -96,13 +98,14 @@ module.exports = (env, { mode = 'development', hosting = 'true' }) => {
     // This could be a little bit slow for bigger project build, but you can change it at anytime
     // to other type of source map to keep the build performance:
     //    http://webpack.github.io/docs/configuration.html#devtool
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
 
     devServer: {
       host: '0.0.0.0',
       port: hosting === 'true' ? 3000 : 3001,
       historyApiFallback: true,
       contentBase: './dist',
+      hot: true,
     },
   };
 
