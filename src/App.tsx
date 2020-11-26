@@ -27,7 +27,7 @@ function App():ReactElement {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learn React 
           </a>
         </p>
       </header>

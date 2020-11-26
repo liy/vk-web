@@ -49,3 +49,7 @@ websocket.onmessage = (e: MessageEvent<string>) => {
     partition: message.Partition,
   });
 };
+
+if (module.hot) {
+  module.hot.accept()
+}
